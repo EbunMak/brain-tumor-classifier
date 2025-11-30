@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor MRI Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Brain Tumor MRI Classifier</h1>
+            <p class="subtitle">Upload an MRI scan to detect brain tumor type</p>
+
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Click to upload or drag and drop</p>
+                <p class="upload-subtext">JPG, JPEG, or PNG (max 10MB)</p>
+                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" hidden>
+            </div>
+
+            <div class="preview-area" id="previewArea" style="display: none;">
+                <img id="previewImage" src="" alt="Preview">
+                <button class="remove-btn" id="removeBtn">Remove Image</button>
+            </div>
+
+            <button class="classify-btn" id="classifyBtn" disabled>
+                <span id="btnText">Classify MRI</span>
+                <div class="spinner" id="spinner" style="display: none;"></div>
+            </button>
+
+            <div class="results" id="results" style="display: none;">
+                <h2>Results</h2>
+                <div class="result-card">
+                    <div class="result-item">
+                        <span class="result-label">Predicted Tumor Type:</span>
+                        <span class="result-value" id="predictedClass">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Confidence:</span>
+                        <span class="result-value" id="confidence">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
